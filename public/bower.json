@@ -1,0 +1,24 @@
+{
+  "name": "express-authentication",
+  "description": "An express app to authentication and authorization test",
+  "main": "app.js",
+  "authors": [
+    "skarif2 <skarif2@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Authenticaition"
+  ],
+  "homepage": "https://github.com/skarif2/express-authentication",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
