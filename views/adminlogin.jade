@@ -5,6 +5,9 @@ block content
 		h2= title
 	.container
 		.row
+			.col.s12.center.error-div
+				if error
+					p ERROR: #{error}
 			form.col.s12(method='post')
 				.row
 					.input-field.col.s12

@@ -5,7 +5,10 @@ block content
 		h2= title
 	.container
 		.row
-			form.col.s12
+			.col.s12.center.error-div
+				if error
+					p ERROR: #{error}
+			form.col.s12(method='post')
 				.row
 					.input-field.col.s6
 						input#first_name.validate(type='text', name='first_name')

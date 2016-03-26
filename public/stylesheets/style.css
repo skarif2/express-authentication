@@ -8,3 +8,6 @@ a {
 .brand-logo{
   margin-left: 30px;
 }
+.error-div{
+  color: red;
+}
