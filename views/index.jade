@@ -3,5 +3,23 @@ extends layout
 block content
   .container
     .row.center
-      h1= title
-      p Welcome to #{title}
+      h3= title
+  .container
+    .row
+      if books
+        each book in books
+          .col.s12.m6.l4
+            .col.s12.book-container
+              .col.s12.book-top
+                h5 #{book.title}
+              .col.s6.book-description
+                p #{book.description}
+              .col.s6
+                img(src='#{book.image_url}').book-img
+              .col.s12.book-line
+                hr.z-depth-4
+              .col.s12.book-bottom
+                a.left.waves-effect.waves-light.btn(href='/books/#{book._id}') Details
+                a.right.waves-effect.waves-light.btn(href='/likes/#{book._id}')
+                  i.material-icons.left thumb_up
+                  span.right #{book.likes}

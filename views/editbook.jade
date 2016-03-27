@@ -1,0 +1,53 @@
+extends layout
+
+block content
+	.container.center
+		h3= title
+	.container
+		.row
+			.col.s12.center.error-div
+				if error
+					p ERROR: #{error}
+			form.col.s12(method='post')
+				.row
+					.input-field.col.s12
+						input.validate(type='text', name='title', required="", aria-required="true", value='#{book.title}')
+						label(for='title') Title
+				.row
+					.input-field.col.s12
+						input.validate(type='text', name='author', required="", aria-required="true", value='#{book.author}')
+						label(for='author') Author
+				.row
+					.input-field.col.s12
+						textarea.materialize-textarea.validate(type='text', name='description', required="", aria-required="true") #{book.description}
+						label(for='description') Description
+				.row
+					.input-field.col.s6
+						select.validate(type='text', name='genre', option='#{book.genre}')
+							option(value='#{book.genre}', disabled='', selected='') #{book.genre}
+							option(value='Suspense') Suspense
+							option(value='Romance') Romance
+							option(value='Self Help') Self Help
+						label(for='genre') Genre
+					.input-field.col.s6
+						input.validate(type='text', name='pages', value='#{book.pages}')
+						label(for='pages') Pages
+				.row
+					.input-field.col.s12
+						input.validate(type='text', name='publisher', value='#{book.publisher}')
+						label(for='publisher') Publisher
+				.row
+					.input-field.col.s12
+						input.validate(type='text', name='image_url', required="", aria-required="true", value='#{book.image_url}')
+						label(for='image_url') Image Url
+				.row
+					.input-field.col.s12
+						input.validate(type='text', name='buy_url', required="", aria-required="true", value='#{book.buy_url}')
+						label(for='buy_url') Buy Url
+				.row
+					.input-field.col.s12
+						input.validate(type='text', name='likes', required="", aria-required="true", value='#{book.likes}')
+						label(for='likes') Likes
+				button.btn.waves-effect.waves-light(type='submit')
+					| Submit
+					i.material-icons.right send

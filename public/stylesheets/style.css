@@ -11,3 +11,36 @@ a {
 .error-div{
   color: red;
 }
+.book-container{
+  border-radius: 7px;
+  background-color: #ffccbc;
+  margin-bottom: 20px;
+}
+.book-top{
+  margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.book-description{
+  height: 220px;
+  overflow: hidden;
+}
+.book-line{
+  margin-top: 15px;
+}
+.book-bottom{
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.book-img{
+  width: 100%;
+	margin-top: 15px;
+}
+.add-book-btn{
+  margin-top: 18px;
+}
+.book-details{
+  font-size: 16px;
+  line-height: 150%;
+}

@@ -30,12 +30,22 @@ function LoginRequired(req, res, next){
   }
 };
 
-/* GET home page. */
+// local routes for '/dashboard'
 router.get('/', CheckSession, LoginRequired, function(req, res, next) {
-  res.render('dashboard', { title: 'Dashboard' });
+  Book.find({}, function(err, books){
+		if(err){
+      res.render('dashboard', { title: 'Dashboard' });
+    } else{
+      if(books){
+        res.render('dashboard', { title: 'Dashboard', books: books });
+      } else {
+        res.render('dashboard', { title: 'Dashboard' });
+      }
+    }
+	});
 });
 router.get('/login', function(req, res, next){
-	res.render('adminlogin', { title: 'Admin Login', error:'' });
+	res.render('adminlogin', { title: 'Admin Login'});
 });
 router.post('/login', function(req, res, next){
   console.log(req.body.email);
@@ -101,6 +111,71 @@ router.post('/addbook', CheckSession, LoginRequired, function(req, res, next){
     if(err){
       res.render('addbook', { title: 'Add Book', error: 'Something went wrong. Please try again.' });
     } else{
+      res.redirect('/dashboard');
+    }
+  });
+});
+
+router.get('/books/:_id', CheckSession, LoginRequired, function(req, res, next){
+  var _id = req.params._id;
+  Book.findById({ _id: _id } , function(err, book){
+		if(err){
+      res.render('404');
+    } else{
+      if(book){
+        res.render('adminbookdetails', { title: 'Book Details', book: book });
+      } else {
+        res.render('404');
+      }
+    }
+	});
+});
+router.get('/editbook/:_id', CheckSession, LoginRequired, function(req, res, next){
+  var _id = req.params._id;
+  Book.findById({ _id: _id } , function(err, book){
+		if(err){
+      res.render('404');
+    } else{
+      if(book){
+        res.render('editbook', { title: 'Edit Book', book: book });
+      } else {
+        res.render('404');
+      }
+    }
+	});
+});
+router.post('/editbook/:_id', CheckSession, LoginRequired, function(req, res, next){
+  var _id = req.params._id ;
+  var book = new Book({
+    _id: req.body._id,
+    likes: req.body.likes,
+    buy_url: req.body.buy_url,
+    image_url: req.body.image_url,
+    publisher: req.body.publisher,
+    pages: req.body.pages,
+    genre: req.body.genre,
+    description: req.body.description,
+    author: req.body.author,
+    title: req.body.title,
+  });
+  Book.findOneAndUpdate({ _id: _id}, book, {new: true}, function(err, book){
+    if(err){
+      console.log(err);
+    }
+    if(!book){
+      res.redirect('/dashboard/editbook/' + req.params._id);
+    } else {
+      res.redirect('/dashboard');
+    }
+  });
+});
+router.get('/deletebook/:_id', CheckSession, LoginRequired, function(req, res, next){
+  var id = req.params._id ;
+  var query = { _id: id};
+	Book.remove(query, function(err){
+    if(err){
+      console.log(err);
+    } else {
       res.redirect('/dashboard');
     }
   });

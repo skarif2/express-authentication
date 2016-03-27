@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	.container.center
+		.row
+			h4.left #{title}
+			a.right.waves-effect.waves-light.btn.add-book-btn(href='/dashboard')
+				i.material-icons.left dashboard
+				| Dashboard
+			.fixed-action-btn.horizontal(style='bottom: 45px; right: 24px;')
+				a.btn-floating.btn-large.red
+					i.large.material-icons settings
+				ul
+					li
+						a.btn-floating.green(href='/dashboard/editbook/#{book._id}')
+							i.material-icons mode_edit
+					li
+						a.btn-floating.blue(href='/dashboard/deletebook/#{book._id}')
+							i.material-icons delete
+	.container.book-details
+		.row
+			.col.s12
+				h3.col.s7 #{book.title}
+				
+			.col.s12
+				.col.s12.m4
+					img(src='#{book.image_url}').book-img
+				.col.s12.m8
+					p <b>Author:</b>  #{book.author}
+					p <b>Genre:</b>  #{book.genre}
+					p <b>Pages:</b>  #{book.pages}
+					p <b>Publisher:</b>  #{book.publisher}
+					p <b>Description:</b>  #{book.description}
