@@ -11,11 +11,11 @@ block content
 			form.col.s12(method='post')
 				.row
 					.input-field.col.s12
-						input#email.validate(type='email', name='email')
+						input#email.validate(type='email', name='email', required="", aria-required="true")
 						label(for='email') Email
 				.row
 					.input-field.col.s12
-						input#password.validate(type='password', name='password')
+						input#password.validate(type='password', name='password', required="", aria-required="true")
 						label(for='password') Password
 				
 				button.btn.waves-effect.waves-light(type='submit')

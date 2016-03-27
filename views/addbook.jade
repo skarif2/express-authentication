@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	.container.center
+		h3= title
+	.container
+		.row
+			.col.s12.center.error-div
+				if error
+					p ERROR: #{error}
+			form.col.s12(method='post')
+				.row
+					.input-field.col.s12
+						input#title.validate(type='text', name='title', required="", aria-required="true")
+						label(for='title') Title
+				.row
+					.input-field.col.s12
+						input#author.validate(type='text', name='author', required="", aria-required="true")
+						label(for='author') Author
+				.row
+					.input-field.col.s12
+						textarea#description.materialize-textarea.validate(type='text', name='description', required="", aria-required="true")
+						label(for='description') Description
+				.row
+					.input-field.col.s6
+						select#genre.validate(type='text', name='genre')
+							option(value='', disabled='', selected='') choose your genre
+							option(value='Suspense') Suspense
+							option(value='Romance') Romance
+							option(value='Self Help') Self Help
+						label(for='genre') Genre
+					.input-field.col.s6
+						input#pages.validate(type='text', name='pages')
+						label(for='pages') Pages
+				.row
+					.input-field.col.s12
+						input#publisher.validate(type='text', name='publisher')
+						label(for='publisher') Publisher
+				.row
+					.input-field.col.s12
+						input#image_url.validate(type='text', name='image_url', required="", aria-required="true")
+						label(for='image_url') Image Url
+				.row
+					.input-field.col.s12
+						input#buy_url.validate(type='text', name='buy_url', required="", aria-required="true")
+						label(for='buy_url') Buy Url
+				button.btn.waves-effect.waves-light(type='submit')
+					| Submit
+					i.material-icons.right send

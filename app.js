@@ -10,7 +10,6 @@ var sessions = require('client-sessions');
 var database = require('./config/database');
 mongoose.connect(database.db_url);
 
-
 // Routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -32,8 +31,11 @@ app.use(sessions({
   cookiName: 'session',
   secret: 'asdfghjklasdfghjkl',
   duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000
+  activeDuration: 5 * 60 * 1000,
+  httpOnly: true, // dont let browser javascript access cookies ever
+  ephemeral: true, // delete this cookie when the browser is closed
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -44,6 +46,7 @@ app.use('/dashboard', dashboard);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
+  res.render('404');
   next(err);
 });
 

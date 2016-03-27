@@ -11,11 +11,20 @@ html
       nav
         .nav-wrapper
           a.brand-logo(href='#') Book Store
+          
           ul#nav-mobile.right.hide-on-med-and-down
             li
               a(href='#') Home
+            li
+              form.col.s3
+                .input-field.center
+                  input#search(type='search', required='')
+                  label(for='search')
+                    i.material-icons search
+                  i.material-icons close
 
     block content
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/Materialize/bin/materialize.js')
+    script(src='/javascripts/master.js')
     
