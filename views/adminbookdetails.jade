@@ -3,20 +3,21 @@ extends layout
 block content
 	.container.center
 		.row
-			h4.left #{title}
-			a.right.waves-effect.waves-light.btn.add-book-btn(href='/dashboard')
-				i.material-icons.left dashboard
-				| Dashboard
-			.fixed-action-btn.horizontal(style='bottom: 45px; right: 24px;')
-				a.btn-floating.btn-large.red
-					i.large.material-icons settings
-				ul
-					li
-						a.btn-floating.green(href='/dashboard/editbook/#{book._id}')
-							i.material-icons mode_edit
-					li
-						a.btn-floating.blue(href='/dashboard/deletebook/#{book._id}')
-							i.material-icons delete
+			.col.s12
+				h4.left #{title}
+				a.right.waves-effect.waves-light.btn.add-book-btn(href='/dashboard')
+					i.material-icons.left dashboard
+					| Dashboard
+				.fixed-action-btn.horizontal(style='bottom: 45px; right: 24px;')
+					a.btn-floating.btn-large.red
+						i.large.material-icons settings
+					ul
+						li
+							a.btn-floating.green(href='/dashboard/editbook/#{book._id}')
+								i.material-icons mode_edit
+						li
+							a.btn-floating.blue(href='/dashboard/deletebook/#{book._id}')
+								i.material-icons delete
 	.container.book-details
 		.row
 			.col.s12

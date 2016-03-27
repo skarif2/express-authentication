@@ -44,8 +44,13 @@ router.get('/', CheckSession, LoginRequired, function(req, res, next) {
     }
 	});
 });
-router.get('/login', function(req, res, next){
-	res.render('adminlogin', { title: 'Admin Login'});
+router.get('/login', CheckSession, function(req, res, next){
+  if(!req.admin){
+    res.render('adminlogin', { title: 'Admin Login'});
+  } else {
+    res.redirect('/dashboard');
+  }
+
 });
 router.post('/login', function(req, res, next){
   console.log(req.body.email);

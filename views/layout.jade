@@ -14,14 +14,15 @@ html
           
           ul#nav-mobile.right.hide-on-med-and-down
             li
-              a(href='#') Home
-            li
-              form.col.s3
-                .input-field.center
-                  input#search(type='search', required='')
-                  label(for='search')
-                    i.material-icons search
-                  i.material-icons close
+              a(href='/') Home
+            if admin
+              li
+                a(href='/dashboard') Dashboard
+              li
+                a(href='/dashboard/logout') Logout
+            else
+              li
+                a(href='/dashboard/login') Dashboard
 
     block content
     script(src='/bower_components/jquery/dist/jquery.js')

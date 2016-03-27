@@ -4,6 +4,7 @@ var router = express.Router();
 // Models
 var Book = require('../models/book.model.js');
 
+
 // local Routes for '/'
 router.get('/', function(req, res, next) {
   Book.find({}, function(err, books){

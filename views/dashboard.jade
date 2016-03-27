@@ -3,8 +3,8 @@ extends layout
 block content
   .container.center
     .row
-      h4.left Welcome to #{title} #{admin.first_name}
-      .fixed-action-btn.horizontal(style='bottom: 45px; right: 24px;')
+      h4 Welcome to #{title} #{admin.first_name}
+      .fixed-action-btn(style='bottom: 45px; right: 24px;')
         a.btn-floating.btn-large.red(href='/dashboard/addbook')
           i.large.material-icons add
   .container
