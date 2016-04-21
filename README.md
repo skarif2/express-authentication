@@ -1,4 +1,4 @@
-# express-authentication [![Build Status](https://travis-ci.org/skarif2/express-authentication.svg?branch=master)](https://travis-ci.org/skarif2/express-authentication) [![Dependency Status](https://david-dm.org/skarif2/express-authentication.svg)](https://david-dm.org/skarif2/express-authentication)
+# Book Store [![Build Status](https://travis-ci.org/skarif2/express-authentication.svg?branch=master)](https://travis-ci.org/skarif2/express-authentication) [![Dependency Status](https://david-dm.org/skarif2/express-authentication.svg)](https://david-dm.org/skarif2/express-authentication)
 
 ## Used tools
 
