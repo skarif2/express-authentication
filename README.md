@@ -1,4 +1,4 @@
-# express-authentication [![Build Status](https://travis-ci.org/skarif2/express-authentication.svg?branch=master)](https://travis-ci.org/skarif2/express-authentication)
+# express-authentication [![Build Status](https://travis-ci.org/skarif2/express-authentication.svg?branch=master)](https://travis-ci.org/skarif2/express-authentication) [![Dependency Status](https://david-dm.org/skarif2/express-authentication.svg)](https://david-dm.org/skarif2/express-authentication)
 
 ###Used tools	-> Node.js, Express.js, Angular.js, MongoDB
 
